@@ -23,19 +23,20 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 	    primaryStage.setTitle("Subtitle Syncer");
 		GridPane grid = new GridPane();
-		grid.setAlignment(Pos.CENTER);
-		grid.setHgap(10);
-		grid.setVgap(10);
-		grid.setPadding(new Insets(25,25,25,25));
+//		grid.setAlignment(Pos.CENTER);
+		grid.setHgap(15);
+		grid.setVgap(15);
+		grid.setPadding(new Insets(25));
 		Text welcomeText = new Text();
 		welcomeText.setText("Welcome!" + "\n" + "Please choose a subtitle file");
+		grid.add(welcomeText, 0, 2);
 		Label subtitleFilePathLabel = new Label("Open a subtitle file: ");
-		grid.add(subtitleFilePathLabel, 0, 0);
+		grid.add(subtitleFilePathLabel, 0, 7);
 		TextField subtitleFilePath = new TextField();
 		subtitleFilePath.setPrefWidth(300);
-		grid.add(subtitleFilePath, 1, 0);
-		Button openSubtitleFile = new Button("Browse");
-		grid.add(openSubtitleFile, 2, 0);
+		grid.add(subtitleFilePath, 1, 7);
+		Button openSubtitleFile = new Button("...");
+		grid.add(openSubtitleFile, 2, 7);
 		openSubtitleFile.setOnAction(
 		    new EventHandler<ActionEvent>(){
 		      @Override
@@ -53,10 +54,12 @@ public class Main extends Application {
 		    }
 		    );
 		Label adjustmentValueLabel = new Label("Value in seconds:");
-		grid.add(adjustmentValueLabel, 0, 1);
+		grid.add(adjustmentValueLabel, 0, 8);
 		TextField adjustmentValue = new TextField();
         adjustmentValue.setMaxWidth(80);
-		grid.add(adjustmentValue, 1, 1);
+		grid.add(adjustmentValue, 1, 8);
+		Button adjustSubtitleFile = new Button("Apply the adjustment!");
+		grid.add(adjustSubtitleFile, 0, 10);
 		Scene scene = new Scene(grid, 600, 500);
 		primaryStage.setScene(scene);
 		primaryStage.show();
