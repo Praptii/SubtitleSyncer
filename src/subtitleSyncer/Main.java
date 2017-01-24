@@ -22,13 +22,17 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 	    primaryStage.setTitle("Subtitle Syncer");
-		GridPane grid = new GridPane();
-//		grid.setAlignment(Pos.CENTER);
+	    GridPane grid = new GridPane();
+        Scene scene = new Scene(grid, 600, 500);
+        primaryStage.setScene(scene);
+	    scene.getStylesheets().add
+	    (Main.class.getResource("main.css").toExternalForm());
 		grid.setHgap(15);
 		grid.setVgap(15);
 		grid.setPadding(new Insets(25));
 		Text welcomeText = new Text();
-		welcomeText.setText("Welcome!" + "\n" + "Please choose a subtitle file");
+		welcomeText.setId("welcome-text");
+		welcomeText.setText("Welcome!");
 		grid.add(welcomeText, 0, 2);
 		Label subtitleFilePathLabel = new Label("Open a subtitle file: ");
 		grid.add(subtitleFilePathLabel, 0, 7);
@@ -60,8 +64,7 @@ public class Main extends Application {
 		grid.add(adjustmentValue, 1, 8);
 		Button adjustSubtitleFile = new Button("Apply the adjustment!");
 		grid.add(adjustSubtitleFile, 0, 10);
-		Scene scene = new Scene(grid, 600, 500);
-		primaryStage.setScene(scene);
+		
 		primaryStage.show();
 	}
 	
