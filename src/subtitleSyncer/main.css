@@ -1,19 +1,18 @@
 
 .root{
-  -fx-background-color: white ;
+  -fx-background-color: grey ;
 }
 
 #welcome-text {
   -fx-font-size: 25px;
   -fx-font-family: "Arial Black";
-  -fx-fill: #818181;
-  -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 ); 
+  -fx-fill: white;
 }
 
 .label {
   -fx-font-size: 15px;
   -fx-font-weight: bold;
-  -fx-text-fill: #333333;
+  -fx-text-fill: white;
   -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
 }
 #actiontarget {
@@ -35,16 +34,18 @@
 }
 
 #exit-button{
-   	-fx-padding: 8 15 15 15;
-    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
-    -fx-background-radius: 8;
-    -fx-background-color: linear-gradient(#d31313, #be1d00);
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
-    -fx-font-weight: bold;
-    -fx-font-size: 1.1em;
+  -fx-padding: 10 30 10 30;
+  -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+  -fx-background-radius: 8;	
+  -fx-text-fill: white;
+  -fx-font-family: "Arial Narrow";
+  -fx-font-size: 15px;
+  -fx-font-weight: bold;
+  -fx-background-color: linear-gradient(#af1a1a, #bf0f0f);
+  -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    
 }
 
 #exit-button:hover {
-    -fx-background-color: 
-        linear-gradient(from 0% 93% to 0% 100%, #d31313 0%, #be1d00 100%);
+    -fx-background-color: linear-gradient(#bf0f0f, #af1a1a);
 }
