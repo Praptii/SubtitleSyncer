@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
 public class Main extends Application {
@@ -63,6 +64,12 @@ public class Main extends Application {
       @Override
       public void handle(ActionEvent e) {
         Base b1 = new Base();
+        Text validateAdjustmentValue = new Text();
+        if(adjustmentValue.getText().length() == 0){
+          validateAdjustmentValue.setText("You must specify a value");
+          validateAdjustmentValue.setFill(Color.RED);
+          grid.add(validateAdjustmentValue, 0, 9);
+        }
         String filePath = subtitleFilePath.getText();
         int adjuster = Integer.parseInt(adjustmentValue.getText());
         try {
@@ -75,7 +82,18 @@ public class Main extends Application {
         
       }
     });
+    Button closeWindow = new Button("Exit");
+    closeWindow.setId("exit-button");
+    grid.add(closeWindow, 1, 14);
+    closeWindow.setOnAction(new EventHandler<ActionEvent>() {
+      @Override
+      public void handle(ActionEvent e) {
+        primaryStage.close();
+      }
+      });
+      
     primaryStage.show();
+    
   }
 
   public static void main(String[] args) {

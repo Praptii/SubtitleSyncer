@@ -9,7 +9,7 @@ public class Base {
     String stringOfContents = sr.filePathReader();
     SubtitleParser pr = new SubtitleParser();
     SubtitleAdjuster sa = new SubtitleAdjuster(pr.parseData(stringOfContents), adjustmentValue);
-    NewSubtitleGenerator ns = new NewSubtitleGenerator(sa.newContentGenerator(),filePath + "adjusted");
+    NewSubtitleGenerator ns = new NewSubtitleGenerator(sa.newContentGenerator(),filePath + "_adjusted");
     ns.subtitlegenerator();
   }
 }
