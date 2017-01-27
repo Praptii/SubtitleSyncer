@@ -60,7 +60,7 @@ public class Main extends Application {
     TextField adjustmentValue = new TextField();
     adjustmentValue.setMaxWidth(80);
     grid.add(adjustmentValue, 1, 9);
-    Button adjustSubtitleFile = new Button("Apply the adjustment!");
+    Button adjustSubtitleFile = new Button("Apply the adjustment");
     grid.add(adjustSubtitleFile, 0, 11);
     adjustSubtitleFile.setOnAction(new EventHandler<ActionEvent>() {
       @Override
@@ -78,7 +78,7 @@ public class Main extends Application {
         }
         String filePath = subtitleFilePath.getText();
         int adjuster = Integer.parseInt(adjustmentValue.getText());
-        if(filePath.length() != 0){
+        if(filePath.length() != 0 && filePath.contains(".srt") == true){
           try {
             b1.process(filePath, adjuster);
           } catch (IOException e1) {
@@ -87,11 +87,19 @@ public class Main extends Application {
             e1.printStackTrace();
           }
           Text successText = new Text();
-          successText.setFill(Color.AQUA);
+          successText.setId("success-text");
           successText.setText("Adjustment Successful!");
           grid.add(successText, 0, 4);
-          FadeTransition ft = new FadeTransition(Duration.millis(3000), successText);
-          ft.setFromValue(1.0);
+          FadeTransition ft = new FadeTransition(Duration.millis(7000), successText);
+          ft.setToValue(0);
+          ft.play();
+        }
+        else{
+          Text failureText = new Text();
+          failureText.setId("failure-text");
+          failureText.setText("Adjustment Failed!");
+          grid.add(failureText, 0, 4);
+          FadeTransition ft = new FadeTransition(Duration.millis(7000), failureText);
           ft.setToValue(0);
           ft.play();
         }

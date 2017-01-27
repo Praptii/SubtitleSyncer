@@ -25,12 +25,12 @@
   -fx-text-fill: white;
   -fx-font-family: "Arial Narrow";
   -fx-font-weight: bold;
-  -fx-background-color: linear-gradient(#61a2b1, #2A5058);
+  -fx-background-color: linear-gradient(#61a2b1,#2A5058);
   -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
 }
 
 .button:hover {
-  -fx-background-color: linear-gradient(#2A5058, #61a2b1);
+  -fx-background-color: linear-gradient(#2A5058,#61a2b1);
 }
 
 #exit-button{
@@ -41,11 +41,25 @@
   -fx-font-family: "Arial Narrow";
   -fx-font-size: 15px;
   -fx-font-weight: bold;
-  -fx-background-color: linear-gradient(#af1a1a, #bf0f0f);
+  -fx-background-color: linear-gradient(#af1a1a,#e01d1d);
   -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
     
 }
 
 #exit-button:hover {
-    -fx-background-color: linear-gradient(#bf0f0f, #af1a1a);
+  -fx-background-color: linear-gradient(#e01d1d,#af1a1a);
+}
+
+#success-text{
+  -fx-fill: #2A5058;
+  -fx-font-weight: bold;
+  -fx-font-size: 15px;
+  
+}
+
+#failure-text{
+  -fx-fill: #af1a1a;
+  -fx-font-weight: bold;
+  -fx-font-size: 15px;
+  
 }
