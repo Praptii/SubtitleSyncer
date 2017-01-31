@@ -56,12 +56,12 @@ public class Main extends Application {
       }
     });
     Label adjustmentValueLabel = new Label("Value in seconds:");
-    grid.add(adjustmentValueLabel, 0, 9);
+    grid.add(adjustmentValueLabel, 0, 10);
     TextField adjustmentValue = new TextField();
     adjustmentValue.setMaxWidth(80);
-    grid.add(adjustmentValue, 1, 9);
+    grid.add(adjustmentValue, 1, 10);
     Button adjustSubtitleFile = new Button("Apply the adjustment");
-    grid.add(adjustSubtitleFile, 0, 11);
+    grid.add(adjustSubtitleFile, 0, 13);
     adjustSubtitleFile.setOnAction(new EventHandler<ActionEvent>() {
       @Override
       public void handle(ActionEvent e) {
@@ -81,24 +81,24 @@ public class Main extends Application {
         if(filePath.length() != 0 && filePath.contains(".srt") == true){
           try {
             b1.process(filePath, adjuster);
+            Text successText = new Text();
+            successText.setId("success-text");
+            successText.setText("Adjustment Successful!");
+            grid.add(successText, 0, 4);
+            FadeTransition ft = new FadeTransition(Duration.millis(7000), successText);
+            ft.setToValue(0);
+            ft.play();
           } catch (IOException e1) {
             e1.printStackTrace();
           } catch (ParseException e1) {
             e1.printStackTrace();
-          }
-          Text successText = new Text();
-          successText.setId("success-text");
-          successText.setText("Adjustment Successful!");
-          grid.add(successText, 0, 4);
-          FadeTransition ft = new FadeTransition(Duration.millis(7000), successText);
-          ft.setToValue(0);
-          ft.play();
+          }      
         }
         else{
           Text failureText = new Text();
           failureText.setId("failure-text");
-          failureText.setText("Adjustment Failed!");
-          grid.add(failureText, 0, 4);
+          failureText.setText("Please specify an srt file");
+          grid.add(failureText, 0, 9);
           FadeTransition ft = new FadeTransition(Duration.millis(7000), failureText);
           ft.setToValue(0);
           ft.play();
